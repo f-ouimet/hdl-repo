@@ -1,0 +1,23 @@
+#for ice40-hx8k breakout board
+
+#clock
+set_io clk_12mhz J3
+
+#vga sync 
+set_io vga_h_sync C16
+set_io vga_v_sync B16
+
+#VGA red 
+set_io R[0] D16
+set_io R[1] D14
+set_io R[2] D15
+
+# VGA Green
+set_io G[0] G16
+set_io G[1] F15
+set_io G[2] G15
+
+# VGA Blue
+set_io B[0] P16
+set_io B[1] P15
+set_io B[2] R15
