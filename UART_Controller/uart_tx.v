@@ -1,55 +1,70 @@
-module uart_tx(
-	input wire clk,
-	input wire tick,
-	input wire rst,
-	input wire en, //enable to start transmitting when data is ready
-	input wire [7:0] data_in,
-	output reg tx
+module uart_tx (
+    input wire clk,
+    input wire tick,
+    input wire rst,
+    input wire en,  //enable to start transmitting when data is ready
+    input wire [7:0] data_in,
+    output reg tx,
+    output reg busy
 );
 
-	//bit count
-	reg [2:0] cnt;
-	//state logic
-	reg [1:0] state, next_state;
-	localparam IDLE = 2'b00;
-	localparam START = 2'b01;
-	localparam DATA = 2'b10;
-	localparam STOP = 2'b11;
+  
+  //state logic
+  reg [1:0] state, next_state;
+  localparam IDLE = 2'b00;
+  localparam START = 2'b01;
+  localparam DATA = 2'b10;
+  localparam STOP = 2'b11;
 
-	//state register
-	always @(posedge clk or posedge rst) begin
-		if (rst)
-			state = IDLE;
-		else
-			state <= next_state;
-	end
+  reg parity_bit;
+  reg en_d; //latch for en high
+  reg [7:0] data_reg;  //captured data
+  //tx bit count
+  reg [2:0] cnt;
 
-	//next state logic
-	always @(*) begin
-		next_state = state;
-		case(state)
-			IDLE: if(en) next_state = START;
-			START: if(tick) next_state = DATA;
-			DATA: if(tick && cnt == 7) next_state <= STOP;
-			STOP: if(tick) next_state = IDLE;
-		endcase
-	end
+  
+  always @(posedge clk or posedge rst) begin
+    if(rst) begin
+      state <= IDLE;
+      cnt <= 3'd0;
+      data_reg <= 8'd0;
+      tx <= 1'b1;
+      busy <= 1'b0;
+    end else begin 
+      case (state)
+        IDLE: begin
+          tx <= 1'b1;
+          busy <= 1'b0;
+          cnt <= 3'd0;
+          if (en) begin
+            data_reg <= data_in;
+            state <= START;
+            busy <= 1'b1;
+          end
+        end
+        
+        START: begin
+          tx <= 1'b0;
+          if (tick) state <= DATA;
+        end
 
-	//output and counters 
-	always @(posedge clk or posedge rst) begin
-		if(rst) begin
-			tx <= 1;
-			cnt <= 0;
-		end else begin
-			case (state)
-				IDLE: tx <= 1;
-				START: if(tick) tx <= 0;
-				DATA: if(tick) begin
-					tx <= data_in[cnt];
-					cnt <= cnt + 1;
-				end
-				STOP: if(tick) tx <= 1;
-			endcase
-		end
-	end
+        DATA : begin
+          tx <= data_reg[cnt]; //lsb to msb 
+          busy <= 1'b1;
+          if (tick) begin
+            if (cnt == 3'd7)
+              state <= STOP;
+            else
+              cnt <= cnt + 1'b1;
+          end
+        end
+        
+        STOP: begin
+          tx <= 1'b1; //stop bit
+          busy <= 1'b1;
+          if (tick) state <= IDLE;
+        end
+      endcase
+    end
+  end
 endmodule

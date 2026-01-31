@@ -9,7 +9,7 @@ module baud_gen #(
 	localparam integer BAUD_DIV = CLK_FREQ / BAUD;
 	reg [$clog2(BAUD_DIV)-1:0] cnt; //takes the size of baud_div
 
-	always @(posedge clk) begin
+	always @(posedge clk or posedge rst) begin
 		if (rst) begin
 			cnt <= 0;
 			baud_tick <= 0;
