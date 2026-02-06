@@ -1,0 +1,24 @@
+digraph "top" {
+label="top";
+rankdir="LR";
+remincross=true;
+n1 [ shape=diamond, label="baud_tick", color="black", fontcolor="black"];
+n2 [ shape=octagon, label="tx", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="busy", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="en", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="data_in", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="rst", color="black", fontcolor="black"];
+n7 [ shape=octagon, label="clk", color="black", fontcolor="black"];
+c9 [ shape=record, label="{{<p7> clk|<p5> data_in|<p4> en|<p6> rst|<p8> tick}|uart_tx_inst\nuart_tx|{<p3> busy|<p2> tx}}",  ];
+c10 [ shape=record, label="{{<p7> clk|<p6> rst}|baud_inst\n$paramod$c303dff4e195cbf209cd9bda5bece420dc0bdde8&#9586;baud_gen|{<p1> baud_tick}}",  ];
+c10:p1:e -> n1:w [color="black", fontcolor="black", label=""];
+n1:e -> c9:p8:w [color="black", fontcolor="black", label=""];
+c9:p2:e -> n2:w [color="black", fontcolor="black", label=""];
+c9:p3:e -> n3:w [color="black", fontcolor="black", label=""];
+n4:e -> c9:p4:w [color="black", fontcolor="black", label=""];
+n5:e -> c9:p5:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n6:e -> c10:p6:w [color="black", fontcolor="black", label=""];
+n6:e -> c9:p6:w [color="black", fontcolor="black", label=""];
+n7:e -> c10:p7:w [color="black", fontcolor="black", label=""];
+n7:e -> c9:p7:w [color="black", fontcolor="black", label=""];
+}

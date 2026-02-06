@@ -1,0 +1,41 @@
+109. Printing statistics.
+
+=== top ===
+
+   Number of wires:                155
+   Number of wire bits:            186
+   Number of public wires:          11
+   Number of public wire bits:      42
+   Number of ports:                  6
+   Number of port bits:             13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                175
+     $_ANDNOT_                      32
+     $_AND_                          4
+     $_MUX_                         19
+     $_NAND_                        11
+     $_NOR_                          2
+     $_NOT_                         35
+     $_ORNOT_                        9
+     $_OR_                          18
+     $_XNOR_                         4
+     $_XOR_                         10
+     sky130_fd_sc_hd__dfrtp_2       29
+     sky130_fd_sc_hd__dfstp_2        2
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\top': 814.531200
+     of which used for sequential elements: 814.531200 (100.00%)
+

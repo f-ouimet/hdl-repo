@@ -1,0 +1,181 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO top
+  CLASS BLOCK ;
+  FOREIGN top ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 67.770 BY 78.490 ;
+  PIN VGND
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT 24.340 10.640 25.940 65.520 ;
+    END
+  END VGND
+  PIN VPWR
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT 21.040 10.640 22.640 65.520 ;
+    END
+  END VPWR
+  PIN busy
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.445500 ;
+    PORT
+      LAYER met3 ;
+        RECT 63.770 58.520 67.770 59.120 ;
+    END
+  END busy
+  PIN clk
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.852000 ;
+    PORT
+      LAYER met2 ;
+        RECT 33.670 0.000 33.950 4.000 ;
+    END
+  END clk
+  PIN data_in[0]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 21.800 4.000 22.400 ;
+    END
+  END data_in[0]
+  PIN data_in[1]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 28.600 4.000 29.200 ;
+    END
+  END data_in[1]
+  PIN data_in[2]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 35.400 4.000 36.000 ;
+    END
+  END data_in[2]
+  PIN data_in[3]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 42.200 4.000 42.800 ;
+    END
+  END data_in[3]
+  PIN data_in[4]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 49.000 4.000 49.600 ;
+    END
+  END data_in[4]
+  PIN data_in[5]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 55.800 4.000 56.400 ;
+    END
+  END data_in[5]
+  PIN data_in[6]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 62.600 4.000 63.200 ;
+    END
+  END data_in[6]
+  PIN data_in[7]
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 69.400 4.000 70.000 ;
+    END
+  END data_in[7]
+  PIN en
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.213000 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 15.000 4.000 15.600 ;
+    END
+  END en
+  PIN rst
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.196500 ;
+    PORT
+      LAYER met3 ;
+        RECT 0.000 8.200 4.000 8.800 ;
+    END
+  END rst
+  PIN tx
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.445500 ;
+    PORT
+      LAYER met3 ;
+        RECT 63.770 19.080 67.770 19.680 ;
+    END
+  END tx
+  OBS
+      LAYER nwell ;
+        RECT 5.330 10.795 62.290 65.365 ;
+      LAYER li1 ;
+        RECT 5.520 10.795 62.100 65.365 ;
+      LAYER met1 ;
+        RECT 4.210 10.640 62.100 65.520 ;
+      LAYER met2 ;
+        RECT 4.230 4.280 60.170 69.885 ;
+        RECT 4.230 3.670 33.390 4.280 ;
+        RECT 34.230 3.670 60.170 4.280 ;
+      LAYER met3 ;
+        RECT 4.400 69.000 63.770 69.865 ;
+        RECT 3.990 63.600 63.770 69.000 ;
+        RECT 4.400 62.200 63.770 63.600 ;
+        RECT 3.990 59.520 63.770 62.200 ;
+        RECT 3.990 58.120 63.370 59.520 ;
+        RECT 3.990 56.800 63.770 58.120 ;
+        RECT 4.400 55.400 63.770 56.800 ;
+        RECT 3.990 50.000 63.770 55.400 ;
+        RECT 4.400 48.600 63.770 50.000 ;
+        RECT 3.990 43.200 63.770 48.600 ;
+        RECT 4.400 41.800 63.770 43.200 ;
+        RECT 3.990 36.400 63.770 41.800 ;
+        RECT 4.400 35.000 63.770 36.400 ;
+        RECT 3.990 29.600 63.770 35.000 ;
+        RECT 4.400 28.200 63.770 29.600 ;
+        RECT 3.990 22.800 63.770 28.200 ;
+        RECT 4.400 21.400 63.770 22.800 ;
+        RECT 3.990 20.080 63.770 21.400 ;
+        RECT 3.990 18.680 63.370 20.080 ;
+        RECT 3.990 16.000 63.770 18.680 ;
+        RECT 4.400 14.600 63.770 16.000 ;
+        RECT 3.990 9.200 63.770 14.600 ;
+        RECT 4.400 8.350 63.770 9.200 ;
+  END
+END top
+END LIBRARY
+

@@ -1,0 +1,90 @@
+Reading OpenROAD database at '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-31-15/20-openroad-generatepdn/top.odb'…
+Reading library file at '/home/felix/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading design constraints file at '/nix/store/h0ldzjka94yryiq8yxbxmwargpnmwhx6-python3-3.11.9-env/lib/python3.11/site-packages/openlane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 10
+[INFO] Setting input delay to: 10
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
++ global_placement -density 0.6406499999999999 -skip_io -pad_right 0 -pad_left 0 -init_wirelength_coef 0.25
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: (  5.520 10.880 ) ( 62.100 65.280 ) um
+[INFO GPL-0006] NumInstances:               225
+[INFO GPL-0007] NumPlaceInstances:          141
+[INFO GPL-0008] NumFixedInstances:           84
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    152
+[INFO GPL-0011] NumPins:                    487
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 67.770 78.490 ) um
+[INFO GPL-0013] CoreBBox: (  5.520 10.880 ) ( 62.100 65.280 ) um
+[INFO GPL-0016] CoreArea:              3077.952 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      205.197 um^2
+[INFO GPL-0018] PlaceInstsArea:        1609.043 um^2
+[INFO GPL-0019] Util:                    56.010 %
+[INFO GPL-0020] StdInstsArea:          1609.043 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:       162
+[INFO GPL-0032] FillerInit:NumGNets:        152
+[INFO GPL-0033] FillerInit:NumGPins:        487
+[INFO GPL-0023] TargetDensity:            0.641
+[INFO GPL-0024] AvrgPlaceInstArea:       11.412 um^2
+[INFO GPL-0025] IdealBinArea:            17.813 um^2
+[INFO GPL-0026] IdealBinCnt:                172
+[INFO GPL-0027] TotalBinArea:          3077.952 um^2
+[INFO GPL-0028] BinCnt:         8      8
+[INFO GPL-0029] BinSize: (  7.073  6.800 )
+[INFO GPL-0030] NumBins: 64
+[NesterovSolve] Iter:    1 overflow: 0.925 HPWL: 410225
+[NesterovSolve] Iter:   10 overflow: 0.924 HPWL: 316696
+[NesterovSolve] Iter:   20 overflow: 0.923 HPWL: 316403
+[NesterovSolve] Iter:   30 overflow: 0.923 HPWL: 316258
+[NesterovSolve] Iter:   40 overflow: 0.923 HPWL: 316236
+[NesterovSolve] Iter:   50 overflow: 0.923 HPWL: 316535
+[NesterovSolve] Iter:   60 overflow: 0.923 HPWL: 316905
+[NesterovSolve] Iter:   70 overflow: 0.923 HPWL: 317552
+[NesterovSolve] Iter:   80 overflow: 0.922 HPWL: 318378
+[NesterovSolve] Iter:   90 overflow: 0.921 HPWL: 319124
+[NesterovSolve] Iter:  100 overflow: 0.920 HPWL: 319655
+[NesterovSolve] Iter:  110 overflow: 0.916 HPWL: 320661
+[NesterovSolve] Iter:  120 overflow: 0.904 HPWL: 323546
+[NesterovSolve] Iter:  130 overflow: 0.868 HPWL: 334440
+[NesterovSolve] Iter:  140 overflow: 0.849 HPWL: 359364
+[NesterovSolve] Iter:  150 overflow: 0.834 HPWL: 378938
+[NesterovSolve] Iter:  160 overflow: 0.819 HPWL: 382050
+[NesterovSolve] Iter:  170 overflow: 0.784 HPWL: 434224
+[NesterovSolve] Iter:  180 overflow: 0.700 HPWL: 514143
+[NesterovSolve] Iter:  190 overflow: 0.662 HPWL: 582344
+[NesterovSolve] Iter:  200 overflow: 0.622 HPWL: 631972
+[NesterovSolve] Iter:  210 overflow: 0.576 HPWL: 696583
+[NesterovSolve] Iter:  220 overflow: 0.538 HPWL: 756341
+[NesterovSolve] Iter:  230 overflow: 0.504 HPWL: 818703
+[NesterovSolve] Iter:  240 overflow: 0.461 HPWL: 880490
+[NesterovSolve] Iter:  250 overflow: 0.418 HPWL: 937604
+[NesterovSolve] Iter:  260 overflow: 0.365 HPWL: 981984
+[NesterovSolve] Iter:  270 overflow: 0.320 HPWL: 1011952
+[NesterovSolve] Iter:  280 overflow: 0.284 HPWL: 1037831
+[NesterovSolve] Iter:  290 overflow: 0.248 HPWL: 1059101
+[NesterovSolve] Iter:  300 overflow: 0.213 HPWL: 1081874
+[NesterovSolve] Iter:  310 overflow: 0.159 HPWL: 1103877
+[NesterovSolve] Iter:  320 overflow: 0.132 HPWL: 1119931
+[NesterovSolve] Iter:  330 overflow: 0.101 HPWL: 1152840
+[NesterovSolve] Finished with Overflow: 0.097502
+[INFO] Setting RC values…
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                                40     150.14
+  Tap cell                                 44      55.05
+  Inverter                                 39     146.39
+  Sequential cell                          31     814.53
+  Multi-Input combinational cell           71     648.12
+  Total                                   225    1814.24
+Writing OpenROAD database to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-31-15/23-openroad-globalplacementskipio/top.odb'…
+Writing netlist to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-31-15/23-openroad-globalplacementskipio/top.nl.v'…
+Writing powered netlist to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-31-15/23-openroad-globalplacementskipio/top.pnl.v'…
+Writing layout to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-31-15/23-openroad-globalplacementskipio/top.def'…
+Writing timing constraints to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-31-15/23-openroad-globalplacementskipio/top.sdc'…

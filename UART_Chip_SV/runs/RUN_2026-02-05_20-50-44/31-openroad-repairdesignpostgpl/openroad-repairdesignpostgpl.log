@@ -1,0 +1,73 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/felix/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing models for corner nom_ff_n40C_1v95…
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/home/felix/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+Reading timing models for corner nom_ss_100C_1v60…
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/home/felix/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+Reading OpenROAD database at '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/27-openroad-globalplacement/top.odb'…
+Reading design constraints file at '/nix/store/h0ldzjka94yryiq8yxbxmwargpnmwhx6-python3-3.11.9-env/lib/python3.11/site-packages/openlane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 10
+[INFO] Setting input delay to: 10
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
+[INFO] Setting RC values…
+[INFO RSZ-0027] Inserted 10 input buffers.
+[INFO RSZ-0028] Inserted 2 output buffers.
+[INFO RSZ-0058] Using max wire length 6335um.
+Iteration | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------
+        0 |       0 |       0 |             0 |       164
+       10 |       9 |       0 |             0 |       154
+       20 |      18 |       0 |             0 |       144
+       30 |      26 |       0 |             0 |       134
+       40 |      35 |       0 |             0 |       124
+       50 |      38 |       0 |             0 |       114
+       60 |      47 |       0 |             0 |       104
+       70 |      56 |       0 |             0 |        94
+       80 |      60 |       0 |             0 |        84
+       90 |      72 |       2 |             2 |        74
+      100 |      82 |       2 |             2 |        64
+      110 |      92 |       2 |             2 |        54
+      120 |      93 |       2 |             2 |        44
+      130 |      93 |       2 |             2 |        34
+      140 |      93 |       2 |             2 |        24
+      150 |      99 |       2 |             2 |        14
+      160 |     107 |       6 |             3 |         4
+    final |     107 |       6 |             3 |         0
+---------------------------------------------------------
+[INFO RSZ-0035] Found 3 fanout violations.
+[INFO RSZ-0038] Inserted 6 buffers in 3 nets.
+[INFO RSZ-0039] Resized 107 instances.
+Placement Analysis
+---------------------------------
+total displacement        470.4 u
+average displacement        1.9 u
+max displacement            8.0 u
+original HPWL            1638.7 u
+legalized HPWL           2088.1 u
+delta HPWL                   27 %
+
+[INFO DPL-0020] Mirrored 72 instances
+[INFO DPL-0021] HPWL before            2088.1 u
+[INFO DPL-0022] HPWL after             2015.1 u
+[INFO DPL-0023] HPWL delta               -3.5 %
+[INFO] Setting RC values…
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                                40     150.14
+  Tap cell                                 44      55.05
+  Timing Repair Buffer                     18      86.33
+  Inverter                                 39     146.39
+  Sequential cell                          31     779.50
+  Multi-Input combinational cell           71     554.28
+  Total                                   243    1771.70
+Writing OpenROAD database to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/31-openroad-repairdesignpostgpl/top.odb'…
+Writing netlist to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/31-openroad-repairdesignpostgpl/top.nl.v'…
+Writing powered netlist to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/31-openroad-repairdesignpostgpl/top.pnl.v'…
+Writing layout to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/31-openroad-repairdesignpostgpl/top.def'…
+Writing timing constraints to '/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/31-openroad-repairdesignpostgpl/top.sdc'…

@@ -1,0 +1,1348 @@
+{
+  "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)",
+  "modules": {
+    "top": {
+      "attributes": {
+        "hdlname": "top",
+        "top": "00000000000000000000000000000001",
+        "src": "src/top.sv:1.1-35.10"
+      },
+      "parameter_default_values": {
+        "BAUDS": "00000000000000000010010110000000",
+        "CLKFREQ": "00000010111110101111000010000000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "data_in": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+        },
+        "en": {
+          "direction": "input",
+          "bits": [ 12 ]
+        },
+        "busy": {
+          "direction": "output",
+          "bits": [ 13 ]
+        },
+        "tx": {
+          "direction": "output",
+          "bits": [ 14 ]
+        }
+      },
+      "cells": {
+        "$flatten\\baud_inst.$add$src/baud_gen.sv:22$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "src/baud_gen.sv:22.14-22.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59 ]
+          }
+        },
+        "$flatten\\baud_inst.$eq$src/baud_gen.sv:17$6": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001101",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001101",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "src/baud_gen.sv:17.18-17.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ],
+            "B": [ "1", "1", "1", "0", "1", "0", "1", "0", "0", "0", "1", "0", "1" ],
+            "Y": [ 60 ]
+          }
+        },
+        "$flatten\\baud_inst.$procdff$74": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "0",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "src/baud_gen.sv:13.3-25.6"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 61 ],
+            "Q": [ 62 ]
+          }
+        },
+        "$flatten\\baud_inst.$procdff$77": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "0000000000000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001101"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "src/baud_gen.sv:13.3-25.6"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75 ],
+            "Q": [ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
+          }
+        },
+        "$flatten\\baud_inst.$procmux$52": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/baud_gen.sv:17.18-17.36|src/baud_gen.sv:17.14-24.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 60 ],
+            "Y": [ 61 ]
+          }
+        },
+        "$flatten\\baud_inst.$procmux$55": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001101"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/baud_gen.sv:17.18-17.36|src/baud_gen.sv:17.14-24.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 60 ],
+            "Y": [ 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$add$src/uart_tx.sv:55$4": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:55.25-55.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 76, 77, 78 ],
+            "B": [ "1" ],
+            "Y": [ 79, 80, 81 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$eq$src/uart_tx.sv:54$3": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:54.17-54.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 76, 77, 78 ],
+            "B": [ "1", "1", "1" ],
+            "Y": [ 82 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procdff$59": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "0",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:25.3-68.6"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 83 ],
+            "Q": [ 13 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procdff$62": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "1",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:25.3-68.6"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 84 ],
+            "Q": [ 14 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procdff$65": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "00",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:25.3-68.6"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 85, 86 ],
+            "Q": [ 87, 88 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procdff$68": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "00000000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:25.3-68.6"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 89, 90, 91, 92, 93, 94, 95, 96 ],
+            "Q": [ 97, 98, 99, 100, 101, 102, 103, 104 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procdff$71": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "always_ff": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:25.3-68.6"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 105, 106, 107 ],
+            "Q": [ 76, 77, 78 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$10_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "0", "1" ],
+            "Y": [ 108 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$11_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "1", "0" ],
+            "Y": [ 109 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$12_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "Y": [ 110 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$15": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:54.17-54.28|src/uart_tx.sv:54.13-55.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 79, 80, 81 ],
+            "B": [ 76, 77, 78 ],
+            "S": [ 82 ],
+            "Y": [ 111, 112, 113 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$17": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:53.15-53.19|src/uart_tx.sv:53.11-56.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 76, 77, 78 ],
+            "B": [ 111, 112, 113 ],
+            "S": [ 62 ],
+            "Y": [ 114, 115, 116 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$19": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000010",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 76, 77, 78 ],
+            "B": [ 114, 115, 116, "0", "0", "0" ],
+            "S": [ 117, 118 ],
+            "Y": [ 105, 106, 107 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$20_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "0", "1" ],
+            "Y": [ 117 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$21_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "Y": [ 118 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$25": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:38.15-38.17|src/uart_tx.sv:38.11-42.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 97, 98, 99, 100, 101, 102, 103, 104 ],
+            "B": [ 4, 5, 6, 7, 8, 9, 10, 11 ],
+            "S": [ 12 ],
+            "Y": [ 119, 120, 121, 122, 123, 124, 125, 126 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$27": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 97, 98, 99, 100, 101, 102, 103, 104 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125, 126 ],
+            "S": [ 127 ],
+            "Y": [ 89, 90, 91, 92, 93, 94, 95, 96 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$28_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "Y": [ 127 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$29": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:62.15-62.19|src/uart_tx.sv:62.11-62.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "0", "0" ],
+            "S": [ 62 ],
+            "Y": [ 128, 129 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$31": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000100",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ 128, 129, 130, 131, 132, 133, 134, 135 ],
+            "S": [ 136, 137, 138, 139 ],
+            "Y": [ 85, 86 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$32_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "1", "1" ],
+            "Y": [ 136 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$34": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:54.17-54.28|src/uart_tx.sv:54.13-55.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "1", "1" ],
+            "S": [ 82 ],
+            "Y": [ 140, 141 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$36": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:53.15-53.19|src/uart_tx.sv:53.11-56.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ 140, 141 ],
+            "S": [ 62 ],
+            "Y": [ 130, 131 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$38_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "0", "1" ],
+            "Y": [ 137 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$39": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:47.15-47.19|src/uart_tx.sv:47.11-47.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "0", "1" ],
+            "S": [ 62 ],
+            "Y": [ 132, 133 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$41_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "1", "0" ],
+            "Y": [ 138 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$42": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:38.15-38.17|src/uart_tx.sv:38.11-42.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "1", "0" ],
+            "S": [ 12 ],
+            "Y": [ 134, 135 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$44_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "Y": [ 139 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$45": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000011",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13 ],
+            "B": [ "1", "1", 142 ],
+            "S": [ 143, 144, 145 ],
+            "Y": [ 83 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$46_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "1", "1" ],
+            "Y": [ 143 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$47_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "0", "1" ],
+            "Y": [ 144 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$48": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:38.15-38.17|src/uart_tx.sv:38.11-42.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 12 ],
+            "Y": [ 142 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$50_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "Y": [ 145 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$8": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000100",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x" ],
+            "B": [ "1", 146, "0", "1" ],
+            "S": [ 147, 108, 109, 110 ],
+            "Y": [ 84 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$9_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "src/uart_tx.sv:0.0-0.0|src/uart_tx.sv:33.7-66.14"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88 ],
+            "B": [ "1", "1" ],
+            "Y": [ 147 ]
+          }
+        },
+        "$flatten\\uart_tx_inst.$shiftx$src/uart_tx.sv:0$2": {
+          "hide_name": 1,
+          "type": "$shiftx",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "src/uart_tx.sv:0.0-0.0"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 97, 98, 99, 100, 101, 102, 103, 104 ],
+            "B": [ 76, 77, 78 ],
+            "Y": [ 146 ]
+          }
+        }
+      },
+      "netnames": {
+        "$flatten\\baud_inst.$0\\baud_tick[0:0]": {
+          "hide_name": 1,
+          "bits": [ 61 ],
+          "attributes": {
+            "src": "src/baud_gen.sv:13.3-25.6"
+          }
+        },
+        "$flatten\\baud_inst.$0\\cnt[12:0]": {
+          "hide_name": 1,
+          "bits": [ 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75 ],
+          "attributes": {
+            "src": "src/baud_gen.sv:13.3-25.6"
+          }
+        },
+        "$flatten\\baud_inst.$add$src/baud_gen.sv:22$7_Y": {
+          "hide_name": 1,
+          "bits": [ 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59 ],
+          "attributes": {
+            "src": "src/baud_gen.sv:22.14-22.21",
+            "unused_bits": "13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31"
+          }
+        },
+        "$flatten\\baud_inst.$eq$src/baud_gen.sv:17$6_Y": {
+          "hide_name": 1,
+          "bits": [ 60 ],
+          "attributes": {
+            "src": "src/baud_gen.sv:17.18-17.36"
+          }
+        },
+        "$flatten\\uart_tx_inst.$0\\busy[0:0]": {
+          "hide_name": 1,
+          "bits": [ 83 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:25.3-68.6"
+          }
+        },
+        "$flatten\\uart_tx_inst.$0\\cnt[2:0]": {
+          "hide_name": 1,
+          "bits": [ 105, 106, 107 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:25.3-68.6"
+          }
+        },
+        "$flatten\\uart_tx_inst.$0\\data_reg[7:0]": {
+          "hide_name": 1,
+          "bits": [ 89, 90, 91, 92, 93, 94, 95, 96 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:25.3-68.6"
+          }
+        },
+        "$flatten\\uart_tx_inst.$0\\state[1:0]": {
+          "hide_name": 1,
+          "bits": [ 85, 86 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:25.3-68.6"
+          }
+        },
+        "$flatten\\uart_tx_inst.$0\\tx[0:0]": {
+          "hide_name": 1,
+          "bits": [ 84 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:25.3-68.6"
+          }
+        },
+        "$flatten\\uart_tx_inst.$add$src/uart_tx.sv:55$4_Y": {
+          "hide_name": 1,
+          "bits": [ 79, 80, 81 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:55.25-55.35"
+          }
+        },
+        "$flatten\\uart_tx_inst.$eq$src/uart_tx.sv:54$3_Y": {
+          "hide_name": 1,
+          "bits": [ 82 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:54.17-54.28"
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$10_CMP": {
+          "hide_name": 1,
+          "bits": [ 108 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$11_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$12_CMP": {
+          "hide_name": 1,
+          "bits": [ 110 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$15_Y": {
+          "hide_name": 1,
+          "bits": [ 111, 112, 113 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$17_Y": {
+          "hide_name": 1,
+          "bits": [ 114, 115, 116 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$20_CMP": {
+          "hide_name": 1,
+          "bits": [ 117 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$21_CMP": {
+          "hide_name": 1,
+          "bits": [ 118 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$25_Y": {
+          "hide_name": 1,
+          "bits": [ 119, 120, 121, 122, 123, 124, 125, 126 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$28_CMP": {
+          "hide_name": 1,
+          "bits": [ 127 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$29_Y": {
+          "hide_name": 1,
+          "bits": [ 128, 129 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$32_CMP": {
+          "hide_name": 1,
+          "bits": [ 136 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$34_Y": {
+          "hide_name": 1,
+          "bits": [ 140, 141 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$36_Y": {
+          "hide_name": 1,
+          "bits": [ 130, 131 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$38_CMP": {
+          "hide_name": 1,
+          "bits": [ 137 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$39_Y": {
+          "hide_name": 1,
+          "bits": [ 132, 133 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$41_CMP": {
+          "hide_name": 1,
+          "bits": [ 138 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$42_Y": {
+          "hide_name": 1,
+          "bits": [ 134, 135 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$44_CMP": {
+          "hide_name": 1,
+          "bits": [ 139 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$46_CMP": {
+          "hide_name": 1,
+          "bits": [ 143 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$47_CMP": {
+          "hide_name": 1,
+          "bits": [ 144 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$48_Y": {
+          "hide_name": 1,
+          "bits": [ 142 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$50_CMP": {
+          "hide_name": 1,
+          "bits": [ 145 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$procmux$9_CMP": {
+          "hide_name": 1,
+          "bits": [ 147 ],
+          "attributes": {
+          }
+        },
+        "$flatten\\uart_tx_inst.$shiftx$src/uart_tx.sv:0$2_Y": {
+          "hide_name": 1,
+          "bits": [ 146 ],
+          "attributes": {
+            "src": "src/uart_tx.sv:0.0-0.0"
+          }
+        },
+        "baud_inst.baud_tick": {
+          "hide_name": 0,
+          "bits": [ 62 ],
+          "attributes": {
+            "hdlname": "baud_inst baud_tick",
+            "src": "src/baud_gen.sv:7.18-7.27"
+          }
+        },
+        "baud_inst.cnt": {
+          "hide_name": 0,
+          "bits": [ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ],
+          "attributes": {
+            "hdlname": "baud_inst cnt",
+            "src": "src/baud_gen.sv:11.23-11.26"
+          }
+        },
+        "busy": {
+          "hide_name": 0,
+          "bits": [ 13 ],
+          "attributes": {
+            "src": "src/top.sv:9.18-9.22"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "src/top.sv:5.17-5.20"
+          }
+        },
+        "data_in": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7, 8, 9, 10, 11 ],
+          "attributes": {
+            "src": "src/top.sv:7.23-7.30"
+          }
+        },
+        "en": {
+          "hide_name": 0,
+          "bits": [ 12 ],
+          "attributes": {
+            "src": "src/top.sv:8.17-8.19"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "src/top.sv:6.17-6.20"
+          }
+        },
+        "tx": {
+          "hide_name": 0,
+          "bits": [ 14 ],
+          "attributes": {
+            "src": "src/top.sv:10.18-10.20"
+          }
+        },
+        "uart_tx_inst.cnt": {
+          "hide_name": 0,
+          "bits": [ 76, 77, 78 ],
+          "attributes": {
+            "hdlname": "uart_tx_inst cnt",
+            "src": "src/uart_tx.sv:22.13-22.16"
+          }
+        },
+        "uart_tx_inst.data_reg": {
+          "hide_name": 0,
+          "bits": [ 97, 98, 99, 100, 101, 102, 103, 104 ],
+          "attributes": {
+            "hdlname": "uart_tx_inst data_reg",
+            "src": "src/uart_tx.sv:20.13-20.21"
+          }
+        },
+        "uart_tx_inst.state": {
+          "hide_name": 0,
+          "bits": [ 87, 88 ],
+          "attributes": {
+            "hdlname": "uart_tx_inst state",
+            "src": "src/uart_tx.sv:13.15-13.20"
+          }
+        }
+      }
+    }
+  }
+}

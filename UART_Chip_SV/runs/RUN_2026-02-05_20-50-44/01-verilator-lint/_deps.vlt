@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/tmp/1ec62a75c0da49c39fe581b3bda39aa9.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/home/felix/hdl-repo/UART_Chip_SV/runs/RUN_2026-02-05_20-50-44/tmp/1ec62a75c0da49c39fe581b3bda39aa9.bb.v"

@@ -1,0 +1,10 @@
+%Warning-WIDTHEXPAND: src/baud_gen.sv:17:22: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'cnt' generates 13 bits.
+                                           : ... note: In instance 'top.baud_inst'
+   17 |     end else if (cnt == BAUDDIV - 1) begin
+      |                      ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.018
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: src/uart_tx.sv:19:7: Signal is not driven, nor used: 'parity_bit'
+                                          : ... note: In instance 'top.uart_tx_inst'
+   19 |   reg parity_bit;
+      |       ^~~~~~~~~~

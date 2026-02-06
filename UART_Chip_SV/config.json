@@ -1,0 +1,7 @@
+{
+  "DESIGN_NAME": "top",
+  "VERILOG_FILES": ["src/top.sv", "src/baud_gen.sv", "src/uart_tx.sv"],
+  "CLOCK_PERIOD": 50,
+  "CLOCK_PORT": "clk",
+  "FP_PIN_ORDER_CFG": "dir::pin_order.cfg"
+}
