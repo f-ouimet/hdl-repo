@@ -4,6 +4,16 @@ A functional skeleton of a pong fpga game. .pcf file is for Lattice iCE40-HX8K B
 
 Bitstream can be generated using yosys, nextpnr-ice40 and iceprog.
 
+# Required tools
+
+- icestorm
+- nextpnr 
+- yosys
+
+# Build
+
+Using makefile, run `make build` and then `make program` to load on board
+
 ## Game states
 
 - Idle

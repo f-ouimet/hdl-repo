@@ -25,5 +25,5 @@ set_io B[2] R15
 # Game and paddle control
 set_io btn_up K14 #joystick up or button
 set_io btn_dwn J14 #joystick down or button
-set_io rst  D15 #joystick or button press
+set_io rst  F16 #joystick or button press
 
