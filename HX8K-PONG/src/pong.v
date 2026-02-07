@@ -35,10 +35,8 @@ module pong (
     localparam S_PLAY  = 2'b10;
 
     reg [1:0] state;
-    reg serve_dir; //0 left, 1 right (ai)
-    wire serve_btn = btn_up | btn_dwn;
-    reg serve_btn_debounce;
-    
+ 
+    reg signed [10:0] ball_x_signed; // extra bit to avoid overflow
     reg signed [2:0] ball_dy; //-2 -1 0 1 2 depending on paddle segment
     reg signed [1:0] ball_dx;
 
@@ -64,16 +62,7 @@ module pong (
                           (ball_bottom >= r_paddle_top) &&
                           (ball_top <= r_paddle_bottom);
 
-    //debounce
-    always @(posedge clk or posedge rst) begin
-        if (rst)
-            serve_btn_debounce <= 1'b0;
-        else
-            serve_btn_debounce <= serve_btn;
-        end
-
-    wire serve_pulse = serve_btn & ~serve_btn_debounce;
-    
+     
     //game update
     always @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -85,9 +74,7 @@ module pong (
             r_paddle_y <= SCREEN_H / 2 - PADDLE_H / 2;
             score_l <= 4'd0;
             score_r <= 4'd0;
-            ball_dx <= 2'sd0;
-            ball_dy <= 3'sd0;
-            serve_dir <= 1'b0;
+            
         end else if (tick) begin
             case (state)
                 S_IDLE: begin
@@ -95,31 +82,24 @@ module pong (
                     ball_y <= SCREEN_H / 2;
                     l_paddle_y <= SCREEN_H / 2 - PADDLE_H / 2;
                     r_paddle_y <= SCREEN_H / 2 - PADDLE_H / 2;
-                    state <= S_SERVE;
+                    ball_dx <= 2'sd0;                     
+                    ball_dy <= 3'sd0;
+                    state <= S_SERVE; 
+           
                 end
 
                 S_SERVE: begin
                     
-                     ball_x <= SCREEN_W / 2;
+                    ball_x <= SCREEN_W / 2;
                     ball_y <= SCREEN_H / 2;
-
-                    // allow paddle positioning before serve
-                    if (btn_up && l_paddle_y > 0)
-                        l_paddle_y <= l_paddle_y - 10'd4;
-                    if (btn_dwn && l_paddle_y < SCREEN_H - PADDLE_H)
-                        l_paddle_y <= l_paddle_y + 10'd4;
-
-                    // wait for user input to serve
-                    if (serve_pulse) begin
-                        ball_dx <= serve_dir ? 2'sd1 : -2'sd1;
-                        ball_dy <= 3'sd1; //arbitrary
-                        state   <= S_PLAY;
-                    end
-                    
+                    ball_dx <= 2'sd1; //moves right
+                    ball_dy <= 3'sd0;
+                    state <= S_PLAY;
                 end
 
                 S_PLAY: begin
-                    ball_x <= ball_x + ball_dx;
+                    ball_x_signed <= ball_x_signed + ball_dx;
+                    ball_x <= ball_x_signed[9:0];
                     ball_y <= ball_y + ball_dy;
 
                     if (ball_top <= 0 || ball_bottom >= SCREEN_H) begin
@@ -156,13 +136,11 @@ module pong (
                 
                     if (ball_left <= 0) begin
                         score_r <= score_r + 4'd1;
-                        serve_dir <= 1'b0;
                         state <= S_IDLE;
                     end
                 
                     if (ball_right >= SCREEN_W) begin
                         score_l <= score_l + 4'd1;
-                        serve_dir <= 1'b1;
                         state <= S_IDLE;
                     end
                 

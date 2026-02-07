@@ -12,7 +12,7 @@ Bitstream can be generated using yosys, nextpnr-ice40 and iceprog.
 
 # Build
 
-Using makefile, run `make build` and then `make program` to load on board
+Using makefile, run `make build` and then `make prog` to load on board
 
 ## Game states
 
