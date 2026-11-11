@@ -22,11 +22,31 @@ module top (
         .locked(pll_locked)
     );
 
+    // ------------------------------------------------------------------
+    // Synchronize the push buttons / joystick into the 25 MHz domain.
+    // Raw pins are asynchronous: feeding them straight into the game logic
+    // (and using rst as an async reset) can corrupt state through
+    // metastability, which showed up as random paddle/ball jumps.
+    // ------------------------------------------------------------------
+    reg [1:0] up_sync  = 2'b00;
+    reg [1:0] dwn_sync = 2'b00;
+    reg [1:0] rst_sync = 2'b11;
+
+    always @(posedge clk_25mhz) begin
+        up_sync  <= {up_sync[0],  btn_up};
+        dwn_sync <= {dwn_sync[0], btn_dwn};
+        rst_sync <= {rst_sync[0], rst | ~pll_locked};
+    end
+
+    wire btn_up_s  = up_sync[1];
+    wire btn_dwn_s = dwn_sync[1];
+    wire rst_s     = rst_sync[1];
+
     wire game_tick;
 
     game_tick game_tick_inst (
         .clk_in(clk_25mhz),
-        .rst (~pll_locked),
+        .rst (rst_s),
         .tick (game_tick)
     );
 
@@ -41,9 +61,9 @@ module top (
     pong pong_inst (
         .clk        (clk_25mhz),
         .tick       (game_tick),
-        .rst        (rst | ~pll_locked),
-        .btn_up     (btn_up),
-        .btn_dwn    (btn_dwn),
+        .rst        (rst_s),
+        .btn_up     (btn_up_s),
+        .btn_dwn    (btn_dwn_s),
         .ball_x     (ball_x),
         .ball_y     (ball_y),
         .l_paddle_y (l_paddle_y),
